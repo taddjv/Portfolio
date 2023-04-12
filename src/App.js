@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Float, Stars, OrbitControls } from "@react-three/drei";
+import "./App.css";
+import { useGeneral } from "./context";
+import ControllerRender from "./components/ControllerRender";
+import RocketRender from "./components/RocketRender";
+import ContactForm from "./components/ContactForm";
+import {
+  Bloom,
+  EffectComposer,
+  Scanline,
+  Vignette,
+  Noise,
+} from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+import { useControls } from "leva";
 
 function App() {
+  const locationRef = useRef();
+  const { location } = useGeneral();
+  const [camera, setCamera] = useState(null);
+
+  useEffect(() => {
+    if (location === "center") setCamera({ fov: 75, position: [0.5, 0, 0] });
+  }, [location]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <ContactForm />
+      <Canvas ref={locationRef} camera={camera}>
+        {/* <Float speed={5} floatIntensity={20}>
+        <RocketRender />
+      </Float> */}
+        <Float
+          speed={location === "center" && 1}
+          floatIntensity={location === "center" && 0.25}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <ControllerRender />
+        </Float>
+        <Stars />
+        {location !== "center" && (
+          <OrbitControls autoRotate={true} autoRotateSpeed={25} />
+        )}
+
+        <color attach="background" args={["#323232"]} />
+        <EffectComposer>
+          <Bloom mipmapBlur luminanceThreshold={1} intensity={2.4} />
+          <Noise premultiply blendFunction={BlendFunction.ADD} />
+          <Vignette offset={0.37} darkness={0.7} opacity={1} />
+          <Scanline density={1.1} opacity={0.025} />
+        </EffectComposer>
+      </Canvas>
+    </>
   );
 }
 
