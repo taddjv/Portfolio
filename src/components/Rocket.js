@@ -17,13 +17,17 @@ export function Rocket(props) {
   useFrame(() => {
     rocketRef.current.rotation.y += 0.02;
     rocketRef.current.position.z =
-      (Math.sin(Date.now() * 0.001) * window.innerWidth - 1000) / 100;
+      (Math.sin(Date.now() * 0.001) * window.innerWidth - 4000) / 1000;
+    // (Math.sin(Date.now() * 0.001) * window.innerWidth - 1000) / 100;
   });
 
   return (
     <group
       rotation={[90 * (Math.PI / 180), 0, 0]}
-      position={[0, 0, -10]}
+      position-x={-5}
+      position-y={-1}
+      // position={[-5, 0, 0]}
+      scale={[0.1, 0.1, 0.1]}
       ref={rocketRef}
       {...props}
       dispose={null}

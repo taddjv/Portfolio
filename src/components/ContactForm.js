@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useGeneral } from "../context";
 import { useSpring, animated } from "react-spring";
+import { inputFocusIn, inputFocusOut } from "../helper";
 const ContactForm = () => {
   const { location, setLocation } = useGeneral();
   const thing = useSpring({
@@ -14,26 +15,48 @@ const ContactForm = () => {
   });
 
   return (
-    <animated.div style={thing} className="container">
+    <animated.div style={thing} className="container1">
       <div className="contact-form">
         <div className="cf-title">Contact me !</div>
         <div className="cf-data">
           <div className="cf-label">Name</div>
-          <input className="cf-input" type="text"></input>
+          <input
+            onFocus={() => inputFocusIn(1)}
+            onBlur={(e) => inputFocusOut(1, e)}
+            className="cf-input-i cf-input"
+            type="text"
+          ></input>
         </div>
         <div className="cf-data">
           <div className="cf-label">Subject</div>
-          <input className="cf-input" type="text"></input>
+          <input
+            onFocus={() => inputFocusIn(2)}
+            onBlur={(e) => inputFocusOut(2, e)}
+            className="cf-input-i cf-input"
+            type="text"
+          ></input>
         </div>
         <div className="cf-data">
-          <div className="cf-label">Email</div>
-          <input className="cf-input" type="email"></input>
+          <div className=" cf-label">Email</div>
+          <input
+            onFocus={() => inputFocusIn(3)}
+            onBlur={(e) => inputFocusOut(3, e)}
+            className="cf-input-i cf-input"
+            type="email"
+          ></input>
         </div>
         <div className="cf-data">
           <div className="cf-label">Message</div>
-          <textarea className="cf-input" type="text"></textarea>
+          <textarea
+            onFocus={() => inputFocusIn(4)}
+            onBlur={(e) => inputFocusOut(4, e)}
+            className="cf-input cf-input-m"
+            type="text"
+          ></textarea>
         </div>
-        <button onClick={() => setLocation("center")}>Send</button>
+        <button className="cf-button" onClick={() => setLocation("center")}>
+          Send
+        </button>
       </div>
     </animated.div>
   );

@@ -1,0 +1,104 @@
+.camera-container {
+    z-index: -1;
+    height: 100%;
+    width:100%;
+    padding:52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-family: camera-font;
+}
+
+.c-top-left {
+    height:calc(100vw/8);
+    width:calc(100vw/8);
+    border-top:white solid 4px;
+    border-left:white solid 4px;
+    padding:12px
+}
+.c-top-right {
+    border-top:white solid 4px;
+    border-right:white solid 4px;
+    height:calc(100vw/8);
+    width:calc(100vw/8);
+    justify-self: end;
+}
+.c-bottom-left {
+    border-bottom:white solid 4px;
+    border-left:white solid 4px;
+    height:calc(100vw/8);
+    width:calc(100vw/8);
+    align-self: end;
+}
+.c-bottom-right {
+    border-bottom:white solid 4px;
+    border-right:white solid 4px;
+    height:calc(100vw/8);
+    width:calc(100vw/8);
+    justify-self: end;
+    align-self: end;
+}
+.c-t-l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:fit-content;
+    gap: 16px;
+}
+.camera-dot {
+    display: inline-block;
+    height:calc(100vw/50);
+    width:calc(100vw/50);
+    border-radius: 100%;
+}
+.camera-rec {
+color:red;
+font-size: calc(100vw/50);
+}
+.c-middle {
+    height:calc(100vh/5);
+    width:calc(100vw/5);
+    position: absolute;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.c-m-top-left {
+    height:calc(100vh/20);
+    width:calc(100vw/20);
+    border-top:rgba(255, 255, 255, 0.3) solid 2px;
+    border-left:rgba(255, 255, 255, 0.3) solid 2px;
+    padding:12px
+}
+.c-m-top-right {
+    border-top:rgba(255, 255, 255, 0.3) solid 2px;
+    border-right:rgba(255, 255, 255, 0.3) solid 2px;
+    height:calc(100vh/20);
+    width:calc(100vw/20);
+    justify-self: end;
+}
+.c-m-bottom-left {
+    border-bottom:rgba(255, 255, 255, 0.3) solid 2px;
+    border-left:rgba(255, 255, 255, 0.3) solid 2px;
+    height:calc(100vh/20);
+    width:calc(100vw/20);
+    align-self: end;
+}
+.c-m-bottom-right {
+    border-bottom:rgba(255, 255, 255, 0.3) solid 2px;
+    border-right:rgba(255, 255, 255, 0.3) solid 2px;
+    height:calc(100vh/20);
+    width:calc(100vw/20);
+    justify-self: end;
+    align-self: end;
+}
+.c-bottom {
+    position: absolute;
+    color:white;
+    width: 100%;
+    text-align: center;
+    bottom:-170%
+}

@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.1.4 public/models/NController.glb
 */
 
 import React, { useState, useRef, useEffect } from "react";
-import { useGLTF, useCursor } from "@react-three/drei";
+import { useGLTF, useCursor, Html } from "@react-three/drei";
 import { useGeneral } from "../context";
 import { useSpring, animated } from "@react-spring/three";
 
@@ -17,7 +17,10 @@ export function NController(props) {
   const [position] = useSpring(
     {
       "position-y":
-        (location === "center" && -0.125) || (location === "up" && 0.6),
+        (["center", "right"].includes(location) && -0.125) ||
+        (location === "up" && 0.6),
+      "position-z":
+        (location === "center" && 0.0001) || (location === "right" && 1.5),
 
       config: {
         mass: 5,
@@ -35,6 +38,9 @@ export function NController(props) {
       {...props}
       dispose={null}
     >
+      <Html fullscreen>
+        <div className="main-title">Hi, I'm Tadd</div>
+      </Html>
       <mesh
         geometry={nodes.defaultMaterial001.geometry}
         material={materials.DefaultMaterial}
@@ -83,6 +89,7 @@ export function NController(props) {
         position={[0.86, 0, -0.12]}
         onPointerOver={(e) => setButtonHover("green")}
         onPointerOut={(e) => setButtonHover(null)}
+        onClick={(e) => setLocation("right")}
       >
         <meshStandardMaterial
           {...materials.DefaultMaterial}
