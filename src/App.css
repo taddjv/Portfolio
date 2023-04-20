@@ -21,16 +21,7 @@ body {
   font-family: camera-font;
   src: url(../public/VCR_OSD_MONO_1.001.ttf);
  }
- .main-title {
-  position:absolute;
-  width: 100%;
-  text-align: center;
-  /* margin-top:72px; */
-  color:white;
-  z-index: 2;
-  font-size: 114px;
-  font-family: snes-font;
- }
+
 
 
  .controller-text {
@@ -72,8 +63,8 @@ body {
   height:100%;
   justify-content:space-between;
   align-items: center;
-margin:auto;
-padding:24px
+  margin:auto;
+  padding:24px
   
   /* font-family: ; */
  }

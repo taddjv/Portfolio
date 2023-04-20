@@ -6,7 +6,7 @@ import "./Camera.css";
 import { useGeneral } from "./context";
 import ControllerRender from "./components/ControllerRender";
 import RocketRender from "./components/RocketRender";
-
+import CTitle from "./components/CTitle";
 import Background from "./components/BackgroundStars";
 import ContactForm from "./components/ContactForm";
 import Projects from "./components/Projects";
@@ -32,6 +32,7 @@ function App() {
     <>
       <ContactForm />
       <Projects />
+      {/* <CTitle /> */}
 
       {/* <Float speed={5} floatIntensity={20}>
           <RocketRender />
@@ -56,19 +57,13 @@ function App() {
         {location === "up" && (
           <OrbitControls autoRotate={true} autoRotateSpeed={10} />
         )}
-        {/* <color attach="background" args={["#323232"]} /> */}
         <EffectComposer>
           <Bloom mipmapBlur luminanceThreshold={1} intensity={2.4} />
           <Noise premultiply blendFunction={BlendFunction.ADD} />
           <Vignette offset={0.37} darkness={0.7} opacity={1} />
           <Scanline density={1.1} opacity={0.025} />
         </EffectComposer>
-        <Html
-          // prepend
-          fullscreen
-          position-z={0}
-          position-x={0}
-        >
+        <Html fullscreen position-z={0} position-x={0}>
           <CameraFrame />
         </Html>
       </Canvas>

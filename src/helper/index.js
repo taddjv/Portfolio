@@ -20,3 +20,10 @@ export const inputFocusOut = (n, e) => {
     div.childNodes[1].style.background = "rgba(255, 255, 255, 0)";
   }
 };
+
+export const controllerTitleAnimation = () => {
+  const text = document.querySelector(".main-title").childNodes;
+  text.forEach((ele) => {
+    setTimeout(() => {}, 1000);
+  });
+};

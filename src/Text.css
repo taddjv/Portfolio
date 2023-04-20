@@ -1,0 +1,23 @@
+.main-title {
+    position:absolute;
+    width: 100%;
+    text-align: center;
+
+
+    /* margin-top:72px; */
+
+
+    color:#b2b4b2;
+    z-index: 2;
+    font-size: 114px;
+    font-family: snes-font;
+    display: flex;
+    justify-content: center;
+   }
+
+.m-t-letter {
+    display: block;
+    /* width:100% */
+    margin:0 0.1rem;
+    width:fit-content
+}
