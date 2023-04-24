@@ -7,29 +7,20 @@ import React, { useState, useRef, useEffect } from "react";
 import { useGLTF, useCursor, Html } from "@react-three/drei";
 import { useGeneral } from "../context";
 import { useSpring, animated } from "@react-spring/three";
-import CTitle from "./CTitle";
 
 export function NController(props) {
   const { nodes, materials } = useGLTF("./models/NController.glb");
   const { buttonHover, setButtonHover, location, setLocation } = useGeneral();
-  const [showtitle, setShowTitle] = useState(false);
   useCursor(buttonHover);
-  useEffect(() => {
-    if (location === "center") {
-      setTimeout(() => {
-        setShowTitle(true);
-      }, 1000);
-    }
-    return () => setShowTitle(false);
-  }, [location]);
-
   const [position] = useSpring(
     {
       "position-y":
         (["center", "right"].includes(location) && -0.125) ||
-        (location === "up" && 0.6),
+        (location === "up" && 0.9) ||
+        (location === "down" && -0.9),
       "position-z":
         (location === "center" && 0.0001) || (location === "right" && 1.5),
+      scale: location === "center" ? [1, 1, 1] : [0, 0, 0],
 
       config: {
         mass: 5,
@@ -47,13 +38,6 @@ export function NController(props) {
       {...props}
       dispose={null}
     >
-      {showtitle && (
-        <Html fullscreen>
-          <CTitle />
-          {/* <div className="main-title">Hi, I'm Tadd</div> */}
-        </Html>
-      )}
-
       <mesh
         geometry={nodes.defaultMaterial001.geometry}
         material={materials.DefaultMaterial}
@@ -61,7 +45,7 @@ export function NController(props) {
         onPointerOver={() => setButtonHover("yellow")}
         onPointerOut={() => setButtonHover(null)}
         onClick={(e) => {
-          setLocation("center");
+          setLocation("down");
         }}
       >
         <meshStandardMaterial

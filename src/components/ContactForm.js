@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGeneral } from "../context";
 import { useSpring, animated } from "react-spring";
 import { inputFocusIn, inputFocusOut } from "../helper";
+import FTitle from "./FTitle";
 const ContactForm = () => {
   const { location, setLocation } = useGeneral();
   const thing = useSpring({
@@ -17,7 +18,8 @@ const ContactForm = () => {
   return (
     <animated.div style={thing} className="container1">
       <div className="contact-form">
-        <div className="cf-title">Contact me !</div>
+        {/* <div className="cf-title">Contact me !</div> */}
+        <FTitle />
         <div className="cf-data">
           <div className="cf-label">Name</div>
           <input

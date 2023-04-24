@@ -10,24 +10,26 @@ Title: Rocket
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { useGeneral } from "../context";
 export function Rocket(props) {
   const { nodes, materials } = useGLTF("./models/Rocket.glb");
   const rocketRef = useRef();
+  const { location, setLocation } = useGeneral();
 
   useFrame(() => {
     rocketRef.current.rotation.y += 0.02;
     rocketRef.current.position.z =
-      (Math.sin(Date.now() * 0.001) * window.innerWidth - 4000) / 1000;
-    // (Math.sin(Date.now() * 0.001) * window.innerWidth - 1000) / 100;
+      (Math.sin(Date.now() * 0.001) * window.innerWidth - 200) / 3000;
+    rocketRef.current.position.y = location === "up" ? 0 : -1;
   });
 
   return (
     <group
       rotation={[90 * (Math.PI / 180), 0, 0]}
-      position-x={-5}
-      position-y={-1}
+      // position-x={-0.5}
+      // position-y={-1}
       // position={[-5, 0, 0]}
-      scale={[0.1, 0.1, 0.1]}
+      scale={[0.01, 0.01, 0.01]}
       ref={rocketRef}
       {...props}
       dispose={null}

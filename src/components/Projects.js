@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { useGeneral } from "../context";
 import { useSpring, animated } from "react-spring";
-import { projectDisplay, projectDisplayOut } from "../helper";
+import PTitle from "./PTitle";
 import { projects } from "../data";
-import img from "../images/drippypic.png";
 import "../Projects.css";
 import ProjectCard from "./ProjectCard";
 
@@ -19,27 +18,31 @@ const Projects = () => {
     },
   });
   return (
-    <animated.div style={thing} className="container2">
-      <div className="contact-form">
-        <div className="cf-title">My projects !</div>
-        <div className="projects">
-          {projects.map((ele, i) => {
-            return (
-              <ProjectCard
-                title={ele.title}
-                url={ele.url}
-                desc={ele.desc}
-                index={i}
-              />
-            );
-          })}
+    <>
+      <animated.div style={thing} className="container2">
+        <PTitle />
+        <div className="contact-form">
+          <div className="projects">
+            {projects.map((ele, i) => {
+              return (
+                <ProjectCard
+                  title={ele.title}
+                  url={ele.url}
+                  gif={ele.gif}
+                  desc={ele.desc}
+                  tech={ele.tech}
+                  git={ele.git}
+                  live={ele.live}
+                />
+              );
+            })}
+          </div>
         </div>
-
         <button className="cf-button" onClick={() => setLocation("center")}>
           Go Back
         </button>
-      </div>
-    </animated.div>
+      </animated.div>
+    </>
   );
 };
 

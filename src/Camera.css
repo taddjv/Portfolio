@@ -22,6 +22,9 @@
     height:calc(100vw/8);
     width:calc(100vw/8);
     justify-self: end;
+    display: flex;
+    justify-content: space-around;
+    padding:8px;
 }
 .c-bottom-left {
     border-bottom:white solid 4px;
@@ -79,6 +82,7 @@ font-size: calc(100vw/50);
     height:calc(100vh/20);
     width:calc(100vw/20);
     justify-self: end;
+    
 }
 .c-m-bottom-left {
     border-bottom:rgba(255, 255, 255, 0.3) solid 2px;
@@ -101,4 +105,21 @@ font-size: calc(100vw/50);
     width: 100%;
     text-align: center;
     bottom:-170%
+}
+.c-t-r-logo {
+    background: white;
+    height:calc(100vw/40);
+    width:calc(100vw/40);
+    border-radius: 100%;
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    color:#323232;
+    border:1px solid rgba(255, 255, 255, 0);
+    /* font-size: 100px; */
+}
+.c-t-r-logo:hover {
+    background: #323232;
+    color:white;
+    border:1px solid rgba(255, 255, 255, 1);
 }

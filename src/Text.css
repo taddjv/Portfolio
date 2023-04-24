@@ -1,18 +1,22 @@
 .main-title {
     position:absolute;
-    width: 100%;
+    width: fit-content;
     text-align: center;
 
 
-    /* margin-top:72px; */
+    margin-top:72px;
 
 
-    color:#b2b4b2;
+    color:white;
+    text-shadow: 2px 2px 0px #b2b4b2;
     z-index: 2;
     font-size: 114px;
     font-family: snes-font;
     display: flex;
-    justify-content: center;
+
+    top: 0;
+    left:50%;
+    transform: translate(-50%,0);
    }
 
 .m-t-letter {

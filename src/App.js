@@ -6,10 +6,12 @@ import "./Camera.css";
 import { useGeneral } from "./context";
 import ControllerRender from "./components/ControllerRender";
 import RocketRender from "./components/RocketRender";
+import { Ufo } from "./components/Ufo";
 import CTitle from "./components/CTitle";
 import Background from "./components/BackgroundStars";
 import ContactForm from "./components/ContactForm";
 import Projects from "./components/Projects";
+import AboutMe from "./components/AboutMe";
 import CameraFrame from "./components/CameraFrame";
 import {
   Bloom,
@@ -20,43 +22,37 @@ import {
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import { useControls } from "leva";
-const num = window.innerWidth;
 function App() {
   const { location } = useGeneral();
-  const [camera, setCamera] = useState(null);
+  // const [camera, setCamera] = useState(null);  useThree(({camera}) => {
 
-  useEffect(() => {
-    if (location === "center") setCamera({ fov: 75, position: [0.5, 0, 0] });
-  }, [location]);
   return (
     <>
       <ContactForm />
+      <AboutMe />
       <Projects />
-      {/* <CTitle /> */}
-
-      {/* <Float speed={5} floatIntensity={20}>
-          <RocketRender />
-        </Float> */}
-      {/* {location === "center" && <div className="main-title">Hi, I'm Tadd</div>} */}
+      {location === "center" && <CTitle />}
 
       <Canvas
         width={window.innerWidth}
         height={window.innerHeight}
-        rotation={[10, 0, 0]}
         camera={{ fov: 75, position: [0.5, 0, 0] }}
         style={{ zIndex: 1 }}
       >
         <Background />
         <Float
-          speed={location === "center" && 1}
+          speed={location === "center" && 2}
           floatIntensity={location === "center" && 0.25}
         >
           <ControllerRender />
         </Float>
-
-        {location === "up" && (
+        <Float speed={5} floatIntensity={1}>
+          <Ufo />
+        </Float>
+        {location === "up" ? (
           <OrbitControls autoRotate={true} autoRotateSpeed={10} />
-        )}
+        ) : null}
+
         <EffectComposer>
           <Bloom mipmapBlur luminanceThreshold={1} intensity={2.4} />
           <Noise premultiply blendFunction={BlendFunction.ADD} />
