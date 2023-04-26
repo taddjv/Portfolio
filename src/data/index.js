@@ -177,3 +177,6 @@ export const projects = [
     git: "https://github.com/taddjv/question_overflow",
   },
 ];
+
+export const aboutMe =
+  "Welcome to my portfolio! My name is Tadd, a fullStack software engineer from Montreal, Canada. I like creating full stack applications with various coding languages such as Javascript and Pyton. I am also dedicated to continually learning and expanding my skill set in order to bring the best solutions to every project ";
