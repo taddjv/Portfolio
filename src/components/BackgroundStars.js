@@ -11,6 +11,7 @@ const Background = () => {
   });
   return (
     <>
+      <ambientLight intensity={0.5} />
       <mesh scale={1} position-y={0.125} ref={backgroundRef}>
         <sphereGeometry />
         <meshMatcapMaterial color={"#444444"} side={THREE.BackSide} />

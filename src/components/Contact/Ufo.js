@@ -45,9 +45,7 @@ export function Ufo(props) {
       dispose={null}
       ref={ufoRef}
       rotation={[0, 0, -Math.PI]}
-      // scale={[-0.125, 0.03, 0.125]}
     >
-      {/* <ambientLight intensity={1} /> */}
       <mesh geometry={nodes.Object_4.geometry} material={materials.Body} />
       <mesh geometry={nodes.Object_5.geometry} material={materials.Glass} />
       <mesh

@@ -4,8 +4,10 @@ import { Float, Stars, OrbitControls, Html } from "@react-three/drei";
 import "./styles/App.css";
 import "./styles/Camera.css";
 import { useGeneral } from "./context";
+
+import { Earth } from "./components/About/Earth";
+import { Rocket } from "./components/Skill/Rocket";
 import ControllerRender from "./components/Main/ControllerRender";
-import RocketRender from "./components/RocketRender";
 import { Ufo } from "./components/Contact/Ufo";
 import CTitle from "./components/Main/CTitle";
 import Background from "./components/BackgroundStars";
@@ -40,15 +42,24 @@ function App() {
         style={{ zIndex: 1 }}
       >
         <Background />
+
+        <Rocket />
+
         <Float
           speed={location === "center" && 2}
           floatIntensity={location === "center" && 0.25}
         >
           <ControllerRender />
         </Float>
+
         <Float speed={5} floatIntensity={1}>
           <Ufo />
         </Float>
+
+        <Float speed={5} floatIntensity={1}>
+          <Earth />
+        </Float>
+
         {location === "up" ? (
           <OrbitControls autoRotate={true} autoRotateSpeed={10} />
         ) : null}

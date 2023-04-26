@@ -10,29 +10,43 @@ Title: Rocket
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
+import { useSpring, animated } from "@react-spring/three";
+
 export function Rocket(props) {
   const { nodes, materials } = useGLTF("./models/Rocket.glb");
   const rocketRef = useRef();
   const { location, setLocation } = useGeneral();
 
+  const [position] = useSpring(
+    {
+      "position-y": location === "left" ? 0 : -1,
+      scale: location === "left" ? [0.02, 0.02, 0.02] : [0, 0, 0],
+      config: {
+        mass: 5,
+        tension: 400,
+        friction: 50,
+        precision: 0.0001,
+      },
+    },
+    [location]
+  );
+
   useFrame(() => {
-    rocketRef.current.rotation.y += 0.02;
-    rocketRef.current.position.z =
-      (Math.sin(Date.now() * 0.001) * window.innerWidth - 200) / 3000;
-    rocketRef.current.position.y = location === "up" ? 0 : -1;
+    rocketRef.current.rotation.y += 0.12;
+    if (rocketRef.current.position.z < -1) {
+      rocketRef.current.position.z = 1;
+    } else {
+      rocketRef.current.position.z -= 0.01;
+    }
   });
 
   return (
-    <group
-      rotation={[90 * (Math.PI / 180), 0, 0]}
-      // position-x={-0.5}
-      // position-y={-1}
-      // position={[-5, 0, 0]}
-      scale={[0.01, 0.01, 0.01]}
+    <animated.group
+      rotation={[-90 * (Math.PI / 180), 0, 0]}
+      {...position}
       ref={rocketRef}
       {...props}
-      dispose={null}
     >
       <mesh geometry={nodes.Object_4.geometry} material={materials.phong2SG} />
       <mesh geometry={nodes.Object_5.geometry} material={materials.blinn1SG} />
@@ -40,7 +54,7 @@ export function Rocket(props) {
       <mesh geometry={nodes.Object_7.geometry} material={materials.blinn3SG} />
       <mesh geometry={nodes.Object_8.geometry} material={materials.phong1SG} />
       <mesh geometry={nodes.Object_9.geometry} material={materials.blinn5SG} />
-    </group>
+    </animated.group>
   );
 }
 
