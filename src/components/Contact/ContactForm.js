@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 import { useSpring, animated } from "react-spring";
-import { inputFocusIn, inputFocusOut } from "../helper";
+import { inputFocusIn, inputFocusOut } from "../../helper";
 import FTitle from "./FTitle";
 const ContactForm = () => {
   const { location, setLocation } = useGeneral();
   const thing = useSpring({
-    top: location === "up" ? "0" : "100vh",
+    top: location === "up" ? "0" : "-100vh",
     config: {
       mass: 5,
       tension: 400,

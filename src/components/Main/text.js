@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Html } from "@react-three/drei";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 
 function Text() {
   const { buttonHover, setButtonHover } = useGeneral();

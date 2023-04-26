@@ -3,7 +3,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, PresentationControls } from "@react-three/drei";
 import { NController } from "./NController";
 import Text from "./text";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 
 const ControllerRender = () => {
   const { location } = useGeneral();

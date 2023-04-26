@@ -10,7 +10,7 @@ Title: ufo
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 import { useSpring, animated } from "@react-spring/three";
 
 export function Ufo(props) {

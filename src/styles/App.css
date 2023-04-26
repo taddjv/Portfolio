@@ -15,11 +15,11 @@ body {
 }
  @font-face {
   font-family: snes-font;
-  src: url(../public/SnesItalic-1G9Be.ttf);
+  src: url(../../public/SnesItalic-1G9Be.ttf);
  }
  @font-face {
   font-family: camera-font;
-  src: url(../public/VCR_OSD_MONO_1.001.ttf);
+  src: url(../../public/VCR_OSD_MONO_1.001.ttf);
  }
 
 
@@ -36,7 +36,8 @@ body {
   z-index:3;
   display: flex;
   align-items: center;
-  justify-content: start;
+  /* justify-content: start; */
+  justify-content: center;
   /* max-width:1440px; */
  }
  .container2 {
@@ -61,6 +62,21 @@ body {
   justify-content: center;
   max-width:1440px;
   margin: auto;
+ }
+  .container4 {
+  position: absolute;
+  left:0;
+  width: 100vw;
+  height:100vh;
+  z-index:3;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 64px;
+  min-height: 580px;
+  padding-bottom:144px;
+  padding-top:172px
  }
  .contact-form {
   color:white;

@@ -1,15 +1,15 @@
 import React from "react";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 import { useSpring, animated } from "react-spring";
 import PTitle from "./PTitle";
-import { projects } from "../data";
-import "../Projects.css";
+import { projects } from "../../data";
+import "../../styles/Projects.css";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
   const { location, setLocation } = useGeneral();
   const thing = useSpring({
-    left: location === "right" ? "0" : "100vw",
+    left: location === "right" ? "0" : "-100vw",
     config: {
       mass: 5,
       tension: 400,

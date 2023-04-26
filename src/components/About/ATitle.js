@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "../Text.css";
-import { animations } from "../helper";
+import "../../styles/Text.css";
+import { animations } from "../../helper";
 const ATitle = () => {
   return (
     <>

@@ -1,14 +1,14 @@
 import React from "react";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 import { useSpring, animated } from "react-spring";
 import ATitle from "./ATitle";
-import portrait from "../images/portraitPic.png";
-import "../About.css";
+import portrait from "../../images/portraitPic.png";
+import "../../styles/About.css";
 
 const AboutMe = () => {
   const { location, setLocation } = useGeneral();
   const thing = useSpring({
-    top: location === "down" ? "0" : "-100vh",
+    top: location === "down" ? "0" : "100vh",
     // top: location === "center" ? "0" : "-100vh",
     config: {
       mass: 5,

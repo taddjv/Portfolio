@@ -1,17 +1,17 @@
 import { useRef, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Float, Stars, OrbitControls, Html } from "@react-three/drei";
-import "./App.css";
-import "./Camera.css";
+import "./styles/App.css";
+import "./styles/Camera.css";
 import { useGeneral } from "./context";
-import ControllerRender from "./components/ControllerRender";
+import ControllerRender from "./components/Main/ControllerRender";
 import RocketRender from "./components/RocketRender";
-import { Ufo } from "./components/Ufo";
-import CTitle from "./components/CTitle";
+import { Ufo } from "./components/Contact/Ufo";
+import CTitle from "./components/Main/CTitle";
 import Background from "./components/BackgroundStars";
-import ContactForm from "./components/ContactForm";
-import Projects from "./components/Projects";
-import AboutMe from "./components/AboutMe";
+import ContactForm from "./components/Contact/ContactForm";
+import Projects from "./components/Project/Projects";
+import AboutMe from "./components/About/AboutMe";
 import CameraFrame from "./components/CameraFrame";
 import {
   Bloom,
@@ -21,16 +21,16 @@ import {
   Noise,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
-import { useControls } from "leva";
+import Skills from "./components/Skill/Skills";
 function App() {
   const { location } = useGeneral();
-  // const [camera, setCamera] = useState(null);  useThree(({camera}) => {
 
   return (
     <>
       <ContactForm />
       <AboutMe />
       <Projects />
+      <Skills />
       {location === "center" && <CTitle />}
 
       <Canvas

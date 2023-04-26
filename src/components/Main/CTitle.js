@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import "../Text.css";
-import { animations } from "../helper";
-const PTitle = () => {
+import "../../styles/Text.css";
+import { animations } from "../../helper";
+
+const CTitle = () => {
   return (
     <>
       <div class="main-title">
@@ -14,7 +15,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          M
+          H
         </motion.span>
         <motion.span
           variants={animations(1.2, 2)}
@@ -24,7 +25,17 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          y
+          i
+        </motion.span>
+        <motion.span
+          variants={animations(1.4, 3)}
+          initial="hidden"
+          animate="visible"
+          whileHover="hover"
+          whileTap="tap"
+          class="m-t-letter"
+        >
+          ,
         </motion.span>
         <span>&nbsp;</span>
         <span>&nbsp;</span>
@@ -36,7 +47,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          P
+          I
         </motion.span>
         <motion.span
           variants={animations(1.8, 1)}
@@ -46,7 +57,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          r
+          '
         </motion.span>
         <motion.span
           variants={animations(2, 2)}
@@ -56,8 +67,10 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          o
+          m
         </motion.span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
         <motion.span
           variants={animations(2.2, 3)}
           initial="hidden"
@@ -66,7 +79,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          j
+          T
         </motion.span>
         <motion.span
           variants={animations(2.4, 4)}
@@ -76,7 +89,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          e
+          a
         </motion.span>
         <motion.span
           variants={animations(2.6, 1)}
@@ -86,7 +99,7 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          c
+          d
         </motion.span>
         <motion.span
           variants={animations(2.8, 2)}
@@ -96,33 +109,11 @@ const PTitle = () => {
           whileTap="tap"
           class="m-t-letter"
         >
-          t
-        </motion.span>
-        <motion.span
-          variants={animations(2.6, 1)}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          whileTap="tap"
-          class="m-t-letter"
-        >
-          s
-        </motion.span>
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
-        <motion.span
-          variants={animations(2.8, 2)}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          whileTap="tap"
-          class="m-t-letter"
-        >
-          !
+          d
         </motion.span>
       </div>
     </>
   );
 };
 
-export default PTitle;
+export default CTitle;

@@ -75,5 +75,5 @@
     transform: translate(-50%, -50%);
     width:calc(100% - 12px);
     z-index: 3;
-        box-shadow: inset 20px 20px 20px #0000008c;
+    box-shadow: inset 20px 20px 20px #ffffff;
 }

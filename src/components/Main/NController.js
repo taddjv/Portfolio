@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.1.4 public/models/NController.glb
 
 import React, { useState, useRef, useEffect } from "react";
 import { useGLTF, useCursor, Html } from "@react-three/drei";
-import { useGeneral } from "../context";
+import { useGeneral } from "../../context";
 import { useSpring, animated } from "@react-spring/three";
 
 export function NController(props) {
@@ -16,10 +16,12 @@ export function NController(props) {
     {
       "position-y":
         (["center", "right"].includes(location) && -0.125) ||
-        (location === "up" && 0.9) ||
-        (location === "down" && -0.9),
+        (location === "up" && -0.9) ||
+        (location === "down" && 0.9),
       "position-z":
-        (location === "center" && 0.0001) || (location === "right" && 1.5),
+        (location === "center" && 0.0001) ||
+        (location === "right" && -1.5) ||
+        (location === "left" && 1.5),
       scale: location === "center" ? [1, 1, 1] : [0, 0, 0],
 
       config: {
@@ -61,6 +63,7 @@ export function NController(props) {
         position={[0.86, 0, -0.12]}
         onPointerOver={(e) => setButtonHover("red")}
         onPointerOut={(e) => setButtonHover(null)}
+        onClick={(e) => setLocation("left")}
       >
         <meshStandardMaterial
           {...materials.DefaultMaterial}
