@@ -121,6 +121,33 @@ text-align: center;
   padding:0 12px;
   transition: all ease-in 350ms;
  }
+ .cf-input-2 {
+  background:rgba(255, 255, 255, 0.2);
+  border:solid rgba(255, 255, 255, 1) 4px;
+  color:white;
+  font-family: snes-font;
+  font-size: 20px;
+  padding:0 12px;
+ }
+
+ .cf-error {
+  background:rgba(255, 255, 255, 0.2);
+  border:solid red 4px;
+  color:white;
+  font-family: snes-font;
+  font-size: 20px;
+  padding:0 12px;
+ }
+ .cf-error-2 {
+  background:none;
+  border:solid rgba(255, 255, 255, 0) 4px;
+  border-bottom:solid red 4px;
+  color:white;
+  font-family: snes-font;
+  font-size: 20px;
+  padding:0 12px;
+ }
+
  .cf-input:focus {
   outline:none
  }
@@ -128,11 +155,16 @@ text-align: center;
   height:44px;
   width:50vw;
  }
-
+ .cf-input-i:focus {
+  outline:none
+ }
  .cf-input-m {
   height:200px;
   width:50vw;
   padding:12px;
+ }
+ .cf-input-m:focus {
+  outline:none
  }
 .cf-button {
   height:44px;
