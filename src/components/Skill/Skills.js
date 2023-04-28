@@ -20,14 +20,14 @@ const Skills = () => {
     },
   });
 
-  useEffect(()=> {
-    const div = document.querySelector(".skills-desc")
+  useEffect(() => {
+    const div = document.querySelector(".skills-desc");
     if (description) {
-      div.style.border = "2px solid rgba(255,255,255,1)"
+      div.style.border = "2px solid rgba(255,255,255,1)";
     } else {
-      div.style.border = "2px solid rgba(255,255,255,0)"
+      div.style.border = "2px solid rgba(255,255,255,0)";
     }
-  })
+  });
   return (
     <animated.div style={thing} className="container4">
       <STitle />
@@ -35,8 +35,6 @@ const Skills = () => {
         <div className="s-d-top"> {name}</div>
 
         <div className="s-d-bottom"> {description}</div>
-
-        {/* hellooooo */}
       </div>
       <div className="skills">
         {skills.map((ele) => (

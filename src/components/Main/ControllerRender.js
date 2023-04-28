@@ -16,11 +16,9 @@ const ControllerRender = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
       <pointLight position={[1, 1, 3]} intensity={1} />
       <pointLight position={[1, 0, 0]} intensity={0.1} />
       <pointLight position={[1, 1, 3]} intensity={1} />
-      {/* <gridHelper /> */}
       <PresentationControls snap zoom={0.8}>
         <NController />
       </PresentationControls>
