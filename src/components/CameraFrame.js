@@ -2,9 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-function CameraFrame() {
+
+const CameraFrame = ({ location, setLocation }) => {
   const [light, setLight] = useState(false);
+  const [color, setColor] = useState(null);
   const time = useRef(Date.now().toString());
+
   const logoStyle = useRef({
     position: "absolute",
     top: "50%",
@@ -18,6 +21,11 @@ function CameraFrame() {
       setLight(!light);
     }, 1000);
   });
+  useEffect(() => {
+    if (location === "up") {
+      setColor();
+    }
+  }, [location]);
   useEffect(() => {
     logoStyle.current = {
       position: "absolute",
@@ -70,7 +78,13 @@ function CameraFrame() {
         </a>
       </div>
       <div className="c-bottom-left"></div>
-      <div className="c-bottom-right"></div>
+      <div className="c-bottom-right">
+        {location !== "center" && (
+          <button className="cf-button" onClick={() => setLocation("center")}>
+            Go Back
+          </button>
+        )}
+      </div>
       <div className="c-middle">
         <div className="c-m-top-left"></div>
         <div className="c-m-top-right"></div>
@@ -80,6 +94,6 @@ function CameraFrame() {
       </div>
     </div>
   );
-}
+};
 
 export default CameraFrame;

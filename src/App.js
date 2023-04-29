@@ -25,7 +25,7 @@ import {
 import { BlendFunction } from "postprocessing";
 import Skills from "./components/Skill/Skills";
 function App() {
-  const { location } = useGeneral();
+  const { location, setLocation } = useGeneral();
 
   return (
     <>
@@ -71,7 +71,7 @@ function App() {
           <Scanline density={1.1} opacity={0.025} />
         </EffectComposer>
         <Html fullscreen position-z={0} position-x={0}>
-          <CameraFrame />
+          <CameraFrame location={location} setLocation={setLocation} />
         </Html>
       </Canvas>
     </>

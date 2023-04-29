@@ -6,7 +6,7 @@ export const controllerTitleAnimation = () => {
 };
 
 export const animations = (n, h) => {
-  const colors = ["#C1121C", "#F7BA0B", "#007243", "#00387b"];
+  const colors = ["rgba(193, 18, 28, 1)", "#F7BA0B", "#007243", "#00387b"];
   return {
     hidden: {
       y: "-100vh",
@@ -50,3 +50,7 @@ export const emailCheck = (data) => {
 
   return { ok: errors.length === 0, errors: errors };
 };
+
+export const emailLog = () => {
+  
+}

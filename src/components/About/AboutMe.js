@@ -8,6 +8,7 @@ import { aboutMe } from "../../data";
 
 const AboutMe = () => {
   const { location, setLocation } = useGeneral();
+
   const thing = useSpring({
     top: location === "down" ? "0" : "100vh",
     // top: location === "center" ? "0" : "-100vh",
@@ -29,10 +30,6 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
-
-      <button className="cf-button" onClick={() => setLocation("center")}>
-        Go Back
-      </button>
     </animated.div>
   );
 };
