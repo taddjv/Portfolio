@@ -25,6 +25,7 @@
     display: flex;
     justify-content: space-around;
     padding:8px;
+    z-index:5
 }
 .c-bottom-left {
     border-bottom:white solid 4px;
@@ -40,6 +41,7 @@
     width:calc(100vw/8);
     justify-self: end;
     align-self: end;
+    position: relative;
 }
 .c-t-l {
     display: flex;
@@ -68,6 +70,7 @@ font-size: calc(100vw/50);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    pointer-events: none;
 }
 .c-m-top-left {
     height:calc(100vh/20);
@@ -98,6 +101,7 @@ font-size: calc(100vw/50);
     width:calc(100vw/20);
     justify-self: end;
     align-self: end;
+
 }
 .c-bottom {
     position: absolute;

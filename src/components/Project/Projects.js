@@ -21,7 +21,7 @@ const Projects = () => {
     <>
       <animated.div style={thing} className="container2">
         <PTitle />
-        <div className="contact-form">
+        <div className="project-container">
           <div className="projects">
             {projects.map((ele, i) => {
               return (
@@ -38,9 +38,6 @@ const Projects = () => {
             })}
           </div>
         </div>
-        <button className="cf-button" onClick={() => setLocation("center")}>
-          Go Back
-        </button>
       </animated.div>
     </>
   );

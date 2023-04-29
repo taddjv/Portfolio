@@ -56,9 +56,6 @@ const Skills = () => {
           </a>
         ))}
       </div>
-      <button className="cf-button" onClick={() => setLocation("center")}>
-        Go Back
-      </button>
     </animated.div>
   );
 };

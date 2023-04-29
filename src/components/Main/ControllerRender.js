@@ -5,6 +5,7 @@ import { NController } from "./NController";
 import Text from "./text";
 import { useGeneral } from "../../context";
 
+
 const ControllerRender = () => {
   const { location } = useGeneral();
   useFrame(({ camera }) => {
@@ -16,6 +17,7 @@ const ControllerRender = () => {
 
   return (
     <>
+      
       <pointLight position={[1, 1, 3]} intensity={1} />
       <pointLight position={[1, 0, 0]} intensity={0.1} />
       <pointLight position={[1, 1, 3]} intensity={1} />

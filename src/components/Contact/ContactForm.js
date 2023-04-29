@@ -3,8 +3,8 @@ import { useGeneral } from "../../context";
 import { useSpring, animated } from "react-spring";
 import emailjs from "@emailjs/browser";
 import { emailCheck } from "../../helper";
-
 import FTitle from "./FTitle";
+
 const ContactForm = () => {
   const { location, setLocation } = useGeneral();
   const [errors, setErrors] = useState([]);
@@ -19,18 +19,26 @@ const ContactForm = () => {
 
   const send = (e) => {
     e.preventDefault();
-
     if (emailCheck(form.current).ok) {
-      emailjs.send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        {
-          name: " dfghbdfgg",
-          message: "fdgdf",
-          email: "dfgdf@gmail.com",
-        },
-        process.env.REACT_APP_PUBLIC_KEY
-      );
+      emailjs
+        .send(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          {
+            name: form.current.name,
+            subject: form.current.subject,
+            email: form.current.email,
+            message: form.current.message,
+          },
+          process.env.REACT_APP_PUBLIC_KEY
+        )
+        .then(() => {
+          setLocation("center");
+          form.current.name = "";
+          form.current.subject = "";
+          form.current.email = "";
+          form.current.message = "";
+        });
     } else {
       setErrors(emailCheck(form.current).errors);
     }
@@ -149,7 +157,7 @@ const ContactForm = () => {
             type="text"
           ></textarea>
         </div>
-        <button className="cf-button" type="submit">
+        <button className="cf-button-2" type="submit">
           Send
         </button>
       </form>
